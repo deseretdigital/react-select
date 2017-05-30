@@ -1,11 +1,11 @@
 {
-  "name": "react-select",
+  "name": "hive-react-select",
   "main": [
     "dist/react-select.min.js",
     "dist/react-select.min.css"
   ],
   "version": "1.0.0-rc.4",
-  "homepage": "https://github.com/JedWatson/react-select",
+  "homepage": "https://github.com/deseretdigital/react-select",
   "authors": [
     "Jed Watson"
   ],

@@ -1,14 +1,14 @@
 {
-  "name": "react-select",
+  "name": "hive-react-select",
   "version": "1.0.0-rc.5",
-  "description": "A Select control built with and for ReactJS",
+  "description": "A Select control built with and for ReactJS. Modified slightly to fit the needs of hive",
   "main": "lib/Select.js",
   "style": "dist/react-select.min.css",
   "author": "Jed Watson",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JedWatson/react-select.git"
+    "url": "https://github.com/deseretdigital/react-select"
   },
   "dependencies": {
     "create-react-class": "^15.5.2",
