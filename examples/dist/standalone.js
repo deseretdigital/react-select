@@ -67,7 +67,6 @@ var defaultProps = {
 	children: defaultChildren,
 	ignoreAccents: true,
 	ignoreCase: true,
-	inputTagPlaceholder: 'What UUUUUUP!',
 	loadingPlaceholder: 'Loading...',
 	options: [],
 	searchPromptText: 'Type to search'
@@ -1735,7 +1734,6 @@ var Select = (0, _createReactClass2['default'])({
 
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
 		var isOpen = !!this.state.isOpen;
-		console.log("input", this.props.value);
 		var ariaOwns = (0, _classnames2['default'])((_classNames = {}, _defineProperty(_classNames, this._instancePrefix + '-list', isOpen), _defineProperty(_classNames, this._instancePrefix + '-backspace-remove-message', this.props.multi && !this.props.disabled && this.state.isFocused && !this.state.inputValue), _classNames));
 		// TODO: Check how this project includes Object.assign()
 		var inputProps = _extends({}, this.props.inputProps, {
