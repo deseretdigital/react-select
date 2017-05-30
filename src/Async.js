@@ -9,6 +9,7 @@ const propTypes = {
 	children: PropTypes.func.isRequired,       // Child function responsible for creating the inner Select component; (props: Object): PropTypes.element
 	ignoreAccents: PropTypes.bool,             // strip diacritics when filtering; defaults to true
 	ignoreCase: PropTypes.bool,                // perform case-insensitive filtering; defaults to true
+	inputTagPlaceholder: PropTypes.string,	   // Message to be placed where the user can click to search for options; defaults to no message
 	loadingPlaceholder: PropTypes.oneOfType([  // replaces the placeholder while options are loading
 		PropTypes.string,
 		PropTypes.node

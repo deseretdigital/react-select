@@ -72,6 +72,7 @@ const Select = createClass({
 		ignoreCase: PropTypes.bool,           // whether to perform case-insensitive filtering
 		inputProps: PropTypes.object,         // custom attributes for the Input
 		inputRenderer: PropTypes.func,        // returns a custom input component
+		inputTagPlaceholder: PropTypes.string,// Message to be placed where the user can click to search for options; defaults to no message
 		instanceId: PropTypes.string,         // set the components instanceId
 		isLoading: PropTypes.bool,            // whether the Select is loading externally or not (such as options being loaded)
 		joinValues: PropTypes.bool,           // joins multiple values into a single form field with the delimiter (legacy mode)
@@ -857,6 +858,7 @@ const Select = createClass({
 			onBlur: this.handleInputBlur,
 			onChange: this.handleInputChange,
 			onFocus: this.handleInputFocus,
+			placeholder: this.props.inputTagPlaceholder,
 			ref: ref => this.input = ref,
 			required: this.state.required,
 			value: this.state.inputValue
