@@ -91,7 +91,6 @@ const UsersField = createClass({
 	},
 	render () {
 		var placeholder = <span>&#9786; Select User</span>;
-
 		return (
 			<div className="section">
 				<h3 className="section-heading">{this.props.label}</h3>

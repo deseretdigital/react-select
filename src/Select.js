@@ -858,7 +858,7 @@ const Select = createClass({
 			onBlur: this.handleInputBlur,
 			onChange: this.handleInputChange,
 			onFocus: this.handleInputFocus,
-			placeholder: this.props.inputTagPlaceholder,
+			placeholder: !this.props.value || (this.props.value && this.props.value.length === 0) || this.props.value.value ? null : this.props.inputTagPlaceholder,
 			ref: ref => this.input = ref,
 			required: this.state.required,
 			value: this.state.inputValue
@@ -874,7 +874,6 @@ const Select = createClass({
 			const ariaOwns = classNames({
 				[this._instancePrefix + '-list']: isOpen,
 			});
-
 			return (
 				<div
 					{...divProps}

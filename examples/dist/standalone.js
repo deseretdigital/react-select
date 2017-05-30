@@ -42,6 +42,7 @@ var propTypes = {
 	children: _propTypes2['default'].func.isRequired, // Child function responsible for creating the inner Select component; (props: Object): PropTypes.element
 	ignoreAccents: _propTypes2['default'].bool, // strip diacritics when filtering; defaults to true
 	ignoreCase: _propTypes2['default'].bool, // perform case-insensitive filtering; defaults to true
+	inputTagPlaceholder: _propTypes2['default'].string, // Message to be placed where the user can click to search for options; defaults to no message
 	loadingPlaceholder: _propTypes2['default'].oneOfType([// replaces the placeholder while options are loading
 	_propTypes2['default'].string, _propTypes2['default'].node]),
 	loadOptions: _propTypes2['default'].func.isRequired, // callback to load options asynchronously; (inputValue: string, callback: Function): ?Promise
@@ -923,6 +924,7 @@ var Select = (0, _createReactClass2['default'])({
 		ignoreCase: _propTypes2['default'].bool, // whether to perform case-insensitive filtering
 		inputProps: _propTypes2['default'].object, // custom attributes for the Input
 		inputRenderer: _propTypes2['default'].func, // returns a custom input component
+		inputTagPlaceholder: _propTypes2['default'].string, // Message to be placed where the user can click to search for options; defaults to no message
 		instanceId: _propTypes2['default'].string, // set the components instanceId
 		isLoading: _propTypes2['default'].bool, // whether the Select is loading externally or not (such as options being loaded)
 		joinValues: _propTypes2['default'].bool, // joins multiple values into a single form field with the delimiter (legacy mode)
@@ -1730,6 +1732,7 @@ var Select = (0, _createReactClass2['default'])({
 
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
 		var isOpen = !!this.state.isOpen;
+		console.log("placeholder", this.props.inputTagPlaceholder, "value", this.props.value);
 
 		var ariaOwns = (0, _classnames2['default'])((_classNames = {}, _defineProperty(_classNames, this._instancePrefix + '-list', isOpen), _defineProperty(_classNames, this._instancePrefix + '-backspace-remove-message', this.props.multi && !this.props.disabled && this.state.isFocused && !this.state.inputValue), _classNames));
 
@@ -1748,6 +1751,7 @@ var Select = (0, _createReactClass2['default'])({
 			onBlur: this.handleInputBlur,
 			onChange: this.handleInputChange,
 			onFocus: this.handleInputFocus,
+			placeholder: !this.props.value || this.props.value && this.props.value.length === 0 || this.props.value.value ? null : this.props.inputTagPlaceholder,
 			ref: function ref(_ref) {
 				return _this5.input = _ref;
 			},
@@ -1766,7 +1770,6 @@ var Select = (0, _createReactClass2['default'])({
 			var divProps = _objectWithoutProperties(_props$inputProps, ['inputClassName']);
 
 			var _ariaOwns = (0, _classnames2['default'])(_defineProperty({}, this._instancePrefix + '-list', isOpen));
-
 			return _react2['default'].createElement('div', _extends({}, divProps, {
 				role: 'combobox',
 				'aria-expanded': isOpen,
