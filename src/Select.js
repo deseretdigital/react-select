@@ -834,7 +834,6 @@ const Select = createClass({
 	renderInput (valueArray, focusedOptionIndex) {
 		var className = classNames('Select-input', this.props.inputProps.className);
 		const isOpen = !!this.state.isOpen;
-
 		const ariaOwns = classNames({
 			[this._instancePrefix + '-list']: isOpen,
 			[this._instancePrefix + '-backspace-remove-message']: this.props.multi
@@ -842,7 +841,6 @@ const Select = createClass({
 				&& this.state.isFocused
 				&& !this.state.inputValue
 		});
-
 		// TODO: Check how this project includes Object.assign()
 		const inputProps = Object.assign({}, this.props.inputProps, {
 			role: 'combobox',
@@ -858,7 +856,7 @@ const Select = createClass({
 			onBlur: this.handleInputBlur,
 			onChange: this.handleInputChange,
 			onFocus: this.handleInputFocus,
-			placeholder: !this.props.value || (this.props.value && this.props.value.length === 0) || this.props.value.value ? null : this.props.inputTagPlaceholder,
+			placeholder: ((this.props.value && Array.isArray(this.props.value) && this.props.value.length > 0) || typeof this.props.value !== "object") && this.props.value ? this.props.inputTagPlaceholder : null,
 			ref: ref => this.input = ref,
 			required: this.state.required,
 			value: this.state.inputValue

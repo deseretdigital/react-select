@@ -184,10 +184,10 @@ export default class Async extends Component {
 	}
 
 	render () {
-		const { children, loadingPlaceholder, placeholder } = this.props;
+		const { children, inputTagPlaceholder, loadingPlaceholder, placeholder } = this.props;
 		const { isLoading, options } = this.state;
-
 		const props = {
+			inputTagPlaceholder: inputTagPlaceholder,
 			noResultsText: this.noResultsText(),
 			placeholder: isLoading ? loadingPlaceholder : placeholder,
 			options: (isLoading && loadingPlaceholder) ? [] : options,

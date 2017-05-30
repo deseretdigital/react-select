@@ -67,6 +67,7 @@ var defaultProps = {
 	children: defaultChildren,
 	ignoreAccents: true,
 	ignoreCase: true,
+	inputTagPlaceholder: 'What UUUUUUP!',
 	loadingPlaceholder: 'Loading...',
 	options: [],
 	searchPromptText: 'Type to search'
@@ -231,6 +232,7 @@ var Async = (function (_Component) {
 
 			var _props3 = this.props;
 			var children = _props3.children;
+			var inputTagPlaceholder = _props3.inputTagPlaceholder;
 			var loadingPlaceholder = _props3.loadingPlaceholder;
 			var placeholder = _props3.placeholder;
 			var _state = this.state;
@@ -238,6 +240,7 @@ var Async = (function (_Component) {
 			var options = _state.options;
 
 			var props = {
+				inputTagPlaceholder: inputTagPlaceholder,
 				noResultsText: this.noResultsText(),
 				placeholder: isLoading ? loadingPlaceholder : placeholder,
 				options: isLoading && loadingPlaceholder ? [] : options,
@@ -1732,10 +1735,8 @@ var Select = (0, _createReactClass2['default'])({
 
 		var className = (0, _classnames2['default'])('Select-input', this.props.inputProps.className);
 		var isOpen = !!this.state.isOpen;
-		console.log("placeholder", this.props.inputTagPlaceholder, "value", this.props.value);
-
+		console.log("input", this.props.value);
 		var ariaOwns = (0, _classnames2['default'])((_classNames = {}, _defineProperty(_classNames, this._instancePrefix + '-list', isOpen), _defineProperty(_classNames, this._instancePrefix + '-backspace-remove-message', this.props.multi && !this.props.disabled && this.state.isFocused && !this.state.inputValue), _classNames));
-
 		// TODO: Check how this project includes Object.assign()
 		var inputProps = _extends({}, this.props.inputProps, {
 			role: 'combobox',
@@ -1751,7 +1752,7 @@ var Select = (0, _createReactClass2['default'])({
 			onBlur: this.handleInputBlur,
 			onChange: this.handleInputChange,
 			onFocus: this.handleInputFocus,
-			placeholder: !this.props.value || this.props.value && this.props.value.length === 0 || this.props.value.value ? null : this.props.inputTagPlaceholder,
+			placeholder: (this.props.value && Array.isArray(this.props.value) && this.props.value.length > 0 || typeof this.props.value !== "object") && this.props.value ? this.props.inputTagPlaceholder : null,
 			ref: function ref(_ref) {
 				return _this5.input = _ref;
 			},
