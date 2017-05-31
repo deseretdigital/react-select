@@ -901,10 +901,12 @@ var Select = (0, _createReactClass2['default'])({
 	displayName: 'Select',
 
 	propTypes: {
+		addedValueClasses: _propTypes2['default'].string, // placeholder displayed when you want to add a label on a multi-value input
 		addLabelText: _propTypes2['default'].string, // placeholder displayed when you want to add a label on a multi-value input
 		'aria-describedby': _propTypes2['default'].string, // HTML ID(s) of element(s) that should be used to describe this input (for assistive tech)
 		'aria-label': _propTypes2['default'].string, // Aria label (for assistive tech)
 		'aria-labelledby': _propTypes2['default'].string, // HTML ID of an element that should be used as the label (for assistive tech)
+		addedValueClasses: _propTypes2['default'].string, // Custom css classes for values
 		arrowRenderer: _propTypes2['default'].func, // Create drop-down caret element
 		autoBlur: _propTypes2['default'].bool, // automatically blur the component when an option is selected
 		autofocus: _propTypes2['default'].bool, // autofocus the component on mount
@@ -2023,7 +2025,7 @@ var Select = (0, _createReactClass2['default'])({
 				},
 				_react2['default'].createElement(
 					'span',
-					{ className: 'Select-multi-value-wrapper', id: this._instancePrefix + '-value' },
+					{ className: 'Select-multi-value-wrapper ANUS ${this.props.addedValueClasses}', id: this._instancePrefix + '-value' },
 					this.renderValue(valueArray, isOpen),
 					this.renderInput(valueArray, focusedOptionIndex)
 				),

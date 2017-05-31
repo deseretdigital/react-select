@@ -47,6 +47,7 @@ const Select = createClass({
 	displayName: 'Select',
 
 	propTypes: {
+		addedValueClasses: PropTypes.string,  // Custom css classes for values
 		addLabelText: PropTypes.string,       // placeholder displayed when you want to add a label on a multi-value input
 		'aria-describedby': PropTypes.string,	// HTML ID(s) of element(s) that should be used to describe this input (for assistive tech)
 		'aria-label': PropTypes.string,       // Aria label (for assistive tech)
@@ -1118,7 +1119,7 @@ const Select = createClass({
 					onTouchStart={this.handleTouchStart}
 					onTouchMove={this.handleTouchMove}
 				>
-					<span className="Select-multi-value-wrapper" id={this._instancePrefix + '-value'}>
+					<span className=`Select-multi-value-wrapper ${this.props.addedValueClasses}` id={this._instancePrefix + '-value'}>
 						{this.renderValue(valueArray, isOpen)}
 						{this.renderInput(valueArray, focusedOptionIndex)}
 					</span>

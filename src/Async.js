@@ -4,6 +4,7 @@ import Select from './Select';
 import stripDiacritics from './utils/stripDiacritics';
 
 const propTypes = {
+	addedValueClasses: PropTypes.string,	   // Custom css classes for values
 	autoload: PropTypes.bool.isRequired,       // automatically call the `loadOptions` prop on-mount; defaults to true
 	cache: PropTypes.any,                      // object to use to cache results; set to null/false to disable caching
 	children: PropTypes.func.isRequired,       // Child function responsible for creating the inner Select component; (props: Object): PropTypes.element
@@ -184,9 +185,10 @@ export default class Async extends Component {
 	}
 
 	render () {
-		const { children, inputTagPlaceholder, loadingPlaceholder, placeholder } = this.props;
+		const { addedValueClasses, children, inputTagPlaceholder, loadingPlaceholder, placeholder } = this.props;
 		const { isLoading, options } = this.state;
 		const props = {
+			addedValueClasses: addedValueClasses,
 			inputTagPlaceholder: inputTagPlaceholder,
 			noResultsText: this.noResultsText(),
 			placeholder: isLoading ? loadingPlaceholder : placeholder,
