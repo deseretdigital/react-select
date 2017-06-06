@@ -1,6 +1,6 @@
 {
   "name": "hive-react-select",
-  "version": "1.0.1-h",
+  "version": "1.0.2-h",
   "description": "A Select control built with and for ReactJS. Modified slightly to fit the needs of hive",
   "main": "lib/Select.js",
   "style": "dist/react-select.min.css",
