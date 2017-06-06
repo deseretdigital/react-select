@@ -198,6 +198,7 @@ const Creatable = createClass({
 	},
 
 	onOptionSelect (option, event) {
+		this.inputValue = '';
 		if (option === this._createPlaceholderOption) {
 			this.createNewOption();
 		} else {
