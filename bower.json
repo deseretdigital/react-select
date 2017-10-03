@@ -1,7 +1,7 @@
 {
   "name": "hive-react-select",
   "main": ["dist/react-select.min.js", "dist/react-select.min.css"],
-  "version": "1.0.3-h",
+  "version": "1.0.4-h",
   "homepage": "https://github.com/deseretdigital/react-select",
   "authors": ["Jed Watson"],
   "description": "A Select control built with and for ReactJS",
