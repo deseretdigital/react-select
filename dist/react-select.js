@@ -1428,7 +1428,7 @@ var Select$1 = function (_React$Component) {
 				onBlur: this.handleInputBlur,
 				onChange: this.handleInputChange,
 				onFocus: this.handleInputFocus,
-				placeholder: (this.props.value && Array.isArray(this.props.value) && this.props.value.length > 0 || _typeof(this.props.value) !== "object") && this.props.value ? this.props.inputTagPlaceholder : null,
+				placeholder: (this.props.value && Array.isArray(this.props.value) && this.props.value.length > 0 || _typeof(this.props.value) !== 'object') && this.props.value ? this.props.inputTagPlaceholder : null,
 				ref: function ref(_ref) {
 					return _this6.input = _ref;
 				},
@@ -1709,7 +1709,7 @@ var Select$1 = function (_React$Component) {
 					},
 					React__default.createElement(
 						'span',
-						{ className: 'Select-multi-value-wrapper ' + this.props.addedValueClasses, id: this._instancePrefix + '-value' },
+						{ className: 'Select-multi-value-wrapper ' + (this.props.addedValueClasses || ''), id: this._instancePrefix + '-value' },
 						this.renderValue(valueArray, isOpen),
 						this.renderInput(valueArray, focusedOptionIndex)
 					),
@@ -1731,12 +1731,12 @@ Select$1.propTypes = {
 	'aria-describedby': PropTypes.string, // HTML ID(s) of element(s) that should be used to describe this input (for assistive tech)
 	'aria-label': PropTypes.string, // Aria label (for assistive tech)
 	'aria-labelledby': PropTypes.string, // HTML ID of an element that should be used as the label (for assistive tech)
-	addedValueClasses: PropTypes.string, // placeholder displayed when you want to add a label on a multi-value input
 	addLabelText: PropTypes.string, // placeholder displayed when you want to add a label on a multi-value input
+	addedValueClasses: PropTypes.string, // placeholder displayed when you want to add a label on a multi-value input
 	arrowRenderer: PropTypes.func, // Create drop-down caret element
 	autoBlur: PropTypes.bool, // automatically blur the component when an option is selected
-	autofocus: PropTypes.bool, // deprecated; use autoFocus instead
 	autoFocus: PropTypes.bool, // autofocus the component on mount
+	autofocus: PropTypes.bool, // deprecated; use autoFocus instead
 	autosize: PropTypes.bool, // whether to enable autosizing or not
 	backspaceRemoves: PropTypes.bool, // whether backspace removes an item if there is no text input
 	backspaceToRemoveMessage: PropTypes.string, // Message to use for screenreaders to press backspace to remove the current item - {label} is replaced with the item label
@@ -1756,6 +1756,7 @@ Select$1.propTypes = {
 	ignoreCase: PropTypes.bool, // whether to perform case-insensitive filtering
 	inputProps: PropTypes.object, // custom attributes for the Input
 	inputRenderer: PropTypes.func, // returns a custom input component
+	inputTagPlaceholder: PropTypes.func, // returns a custom input component
 	instanceId: PropTypes.string, // set the components instanceId
 	isLoading: PropTypes.bool, // whether the Select is loading externally or not (such as options being loaded)
 	joinValues: PropTypes.bool, // joins multiple values into a single form field with the delimiter (legacy mode)
@@ -1805,7 +1806,7 @@ Select$1.propTypes = {
 };
 
 Select$1.defaultProps = {
-	addedValueClasses: "",
+	addedValueClasses: '',
 	addLabelText: 'Add "{label}"?',
 	arrowRenderer: arrowRenderer,
 	autosize: true,
@@ -2044,6 +2045,7 @@ var Async = function (_Component) {
 			var _props3 = this.props,
 			    addedValueClasses = _props3.addedValueClasses,
 			    children = _props3.children,
+			    inputTagPlaceholder = _props3.inputTagPlaceholder,
 			    loadingPlaceholder = _props3.loadingPlaceholder,
 			    placeholder = _props3.placeholder;
 			var _state2 = this.state,
