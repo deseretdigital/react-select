@@ -177,7 +177,7 @@ export default class Async extends Component {
 	}
 
 	render () {
-		const { addedValueClasses, children, loadingPlaceholder, placeholder, value } = this.props;
+		const { addedValueClasses, children, inputTagPlaceholder, loadingPlaceholder, placeholder, value } = this.props;
 		const { isLoading, options } = this.state;
 		const props = {
 			addedValueClasses: addedValueClasses,
